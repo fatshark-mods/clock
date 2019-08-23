@@ -1,0 +1,11 @@
+mod = [
+	"Clock"
+]
+
+package = [
+	"resource_packages/Clock/Clock"
+]
+
+lua = [
+	"scripts/mods/Clock/*"
+]
