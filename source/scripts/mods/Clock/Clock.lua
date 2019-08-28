@@ -58,6 +58,7 @@ end
 
 mod.update = function(dt) --Draw/update clock once a second IF the hud is visible.
 	if mod:is_enabled() and Managers.time:time("game") ~= nil and Managers.time:time("game") > lastDT + 1 then
+		script_data.disable_debug_draw = false -- Seems to be an overkill but it appears to be set to true AFTER mod is loaded and other mods can also manipulate it, so we need to spam it.
 		local hudvisible = Managers.player:local_player().network_manager.matchmaking_manager._ingame_ui.ingame_hud._currently_visible_components ~= {}	
 		if hudvisible == true then 
 			Managers.state.debug_text:output_screen_text_clock( os.date(mod:get("format")), mod:get("fontsize"), nil, Vector3(mod:get("colorred"),mod:get("colorgreen"),mod:get("colorblue")), mod:get("opacity")) 
@@ -92,6 +93,5 @@ mod.on_setting_changed = function(setting_name) --Hack to instantly apply change
 end
 
 mod.on_enabled = function(is_first_call) --Make sure everything we need is set.
-	script_data.disable_debug_draw = false
 	lastDT = 0 
 end
