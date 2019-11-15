@@ -15,7 +15,7 @@ DebugTextManager.output_screen_text_clock = function (self, text, text_size, tim
 	local posx = math.round( (resolution.x / 100) * mod:get("posx"))
 	local posy = math.round( (resolution.y / 100) * mod:get("posy"))
 	
-	local material = "gw_body_64"
+	local material = "gw_body"
 	local font = "materials/fonts/" .. material
 	local text_extent_min, text_extent_max = Gui.text_extents(gui, text, font, text_size)
 	local text_w = text_extent_max[1] - text_extent_min[1]
